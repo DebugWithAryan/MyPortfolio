@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aryan Jaiswal | Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="page-loader">
+      <div class="loader-content">
+        <div class="loader-icons">
+          <img id="loader-icon-img" src="" alt="Skill Icon" />
+        </div>
+        <div class="loader-text">Welcome to Aryan's Portfolio</div>
+      </div>
+    </div>
+    <nav class="navbar glassmorph">
+      <div class="container nav-content">
+        <a href="#" class="logo">AJ</a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact" class="btn-primary">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" id="nav-toggle"><i class="ri-menu-3-line"></i></button>
+      </div>
+    </nav>
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              <span id="typewriter-title"></span>
+            </h1>
+            <h2 class="hero-subtitle">
+              <span id="typewriter"></span>
+            </h2>
+            <span class="typewriter-cursor" id="typewriter-cursor">|</span>
+            <p class="hero-desc">I build beautiful, performant mobile and web experiences. Let's create something amazing together.</p>
+            <div class="hero-actions">
+              <a href="#projects" class="btn-primary">View Projects</a>
+              <a href="#contact" class="btn-secondary">Contact Me</a>
+            </div>
+          </div>
+          <div class="hero-img">
+            <!-- 3D canvas removed -->
+          </div>
+        </div>
+      </section>
+      <section class="about glassmorph" id="about">
+        <div class="container about-content">
+          <div class="about-img">
+            <img src="assets/about.jpg" alt="About Aryan" />
+          </div>
+          <div class="about-text">
+            <h2>About Me</h2>
+            <p>I'm a passionate software engineer with 2+ years of experience in Android and web development. I love solving problems, building scalable apps, and learning new technologies. My goal is to deliver delightful user experiences through clean code and creative design.</p>
+            <ul class="about-list">
+              <li><i class="ri-smartphone-line"></i> Kotlin, Java, Jetpack Compose</li>
+              <li><i class="ri-code-s-slash-line"></i> React, HTML, CSS, JS</li>
+              <li><i class="ri-database-2-line"></i> Firebase, REST APIs</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="experience-section" id="experience">
+        <div class="container">
+          <h2 class="section-title">Experience</h2>
+          <div class="card-grid">
+            <div class="exp-card glassmorph">
+              <span class="exp-icon"><i class="ri-android-line"></i></span>
+              <h3>Software Development Intern</h3>
+              <h4>Delnie Pvt. Ltd. (Remote)</h4>
+              <p class="exp-date">May 2025 - Present</p>
+              <ul>
+                <li>Developed FavHiker, a food discovery Android app using Kotlin, Jetpack Compose, and MVVM.</li>
+                <li>Reduced crash rates by 25% via performance optimization and code reviews.</li>
+                <li>Integrated REST APIs and Firebase for real-time data sync.</li>
+              </ul>
+            </div>
+            <!-- Add more experience cards as needed -->
+          </div>
+        </div>
+      </section>
+      <section class="education-section" id="education">
+        <div class="container">
+          <h2 class="section-title">Education</h2>
+          <div class="card-grid">
+            <div class="edu-card glassmorph">
+              <span class="edu-icon"><i class="ri-graduation-cap-line"></i></span>
+              <h3>B.Tech in Computer Science Engineering</h3>
+              <h4>Jaypee University of Engineering and Technology</h4>
+              <p class="edu-date">2023 - 2027</p>
+            </div>
+            <div class="edu-card glassmorph">
+              <span class="edu-icon"><i class="ri-school-line"></i></span>
+              <h3>Higher Secondary Certificate (CBSE)</h3>
+              <h4>St. Xavier's Senior Secondary School</h4>
+              <p class="edu-date">2022</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Certifications Section -->
+      <section class="education-section" id="certifications">
+        <div class="container">
+          <h2 class="section-title">Certifications</h2>
+          <div class="card-grid certifications"></div>
+        </div>
+      </section>
+      <!-- Skills/Technologies Section -->
+      <section class="skills-section" id="skills">
+        <div class="container">
+          <h2 class="section-title">Technologies & Skills</h2>
+          <div class="skills-list"></div>
+        </div>
+      </section>
+      <!-- Projects Section with Carousel -->
+      <section class="projects-section" id="projects">
+        <div class="container">
+          <h2 class="section-title">Projects</h2>
+          <div class="projects-carousel">
+            <button class="carousel-btn" id="prev-btn" aria-label="Previous projects">
+              <i class="ri-arrow-left-line"></i>
+            </button>
+            <div class="carousel-container">
+              <div class="carousel-track" id="carousel-track"></div>
+            </div>
+            <button class="carousel-btn" id="next-btn" aria-label="Next projects">
+              <i class="ri-arrow-right-line"></i>
+            </button>
+          </div>
+          <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+      </section>
+      <section class="contact-section glassmorph" id="contact">
+        <div class="container contact-content">
+          <h2>Contact Me</h2>
+          <p>Let's connect! Reach out for collaborations, opportunities, or just to say hi.</p>
+          <form class="contact-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+          </form>
+          <div class="contact-socials">
+            <a href="https://www.linkedin.com/in/aryanjaiswall" target="_blank"><i class="ri-linkedin-fill"></i></a>
+            <a href="https://github.com/Debug-With-Aryan" target="_blank"><i class="ri-github-fill"></i></a>
+            <a href="mailto:aryanjaiswal123123@gmail.com"><i class="ri-mail-fill"></i></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer glassmorph">
+      <div class="container">
+        <p>© 2025 Aryan Jaiswal. All rights reserved.</p>
+      </div>
+    </footer>
+    
+    <!-- Coming Soon Modal -->
+    <div class="modal-overlay" id="coming-soon-modal">
+      <div class="modal-content">
+        <div class="modal-icon">
+          <i class="ri-time-line"></i>
+        </div>
+        <h3 class="modal-title">Coming Soon!</h3>
+        <p class="modal-message">This feature is currently under development. Stay tuned for updates!</p>
+        <button class="modal-close" id="modal-close">Got it!</button>
+      </div>
+    </div>
+    
+    <script src="main.js"></script>
+  </body>
+</html>
