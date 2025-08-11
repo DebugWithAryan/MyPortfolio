@@ -42,7 +42,9 @@
             <span class="typewriter-cursor" id="typewriter-cursor">|</span>
             <p class="hero-desc">I build beautiful, performant mobile and web experiences. Let's create something amazing together.</p>
             <div class="hero-actions">
-              <a href="#projects" class="btn-primary">View Projects</a>
+              <a href="assets/certificates/Resume.pdf" download class="btn-primary">
+                <i class="ri-download-line"></i> Download Resume
+              </a>
               <a href="#contact" class="btn-secondary">Contact Me</a>
             </div>
           </div>
@@ -64,6 +66,11 @@
               <li><i class="ri-code-s-slash-line"></i> React, HTML, CSS, JS</li>
               <li><i class="ri-database-2-line"></i> Firebase, REST APIs</li>
             </ul>
+            <div style="margin-top: 1.5rem;">
+              <a href="assets/certificates/Resume.pdf" download class="btn-primary">
+                <i class="ri-download-line"></i> Download Resume
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -170,6 +177,22 @@
         <h3 class="modal-title">Coming Soon!</h3>
         <p class="modal-message">This feature is currently under development. Stay tuned for updates!</p>
         <button class="modal-close" id="modal-close">Got it!</button>
+      </div>
+    </div>
+
+    <!-- Certificate Modal -->
+    <div class="modal-overlay" id="certificate-modal">
+      <div class="modal-content" id="certificate-modal-content">
+        <div class="modal-icon">
+          <i class="ri-award-line"></i>
+        </div>
+        <h3 class="modal-title" id="certificate-modal-title">View Certificate</h3>
+        <p class="modal-message" id="certificate-modal-message">How would you like to view this certificate?</p>
+        <div class="modal-actions" id="certificate-modal-actions">
+          <button class="btn-outline" id="certificate-see-btn">See</button>
+          <button class="btn-secondary" id="certificate-download-btn">Download</button>
+        </div>
+        <button class="modal-close" id="certificate-close">Close</button>
       </div>
     </div>
     

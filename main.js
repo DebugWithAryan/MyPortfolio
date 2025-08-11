@@ -4,37 +4,37 @@ const certifications = [
     title: "Python for Beginner",
     org: "Microsoft",
     date: "21st Oct, 2024",
-    link: "#"
+    file: "assets/certificates/Microsoft.pdf"
   },
   {
     title: "Complete Android 15 Development - Java & Kotlin",
     org: "Udemy",
     date: "20th Mar, 2025",
-    link: "#"
+    file: "assets/certificates/AppDevUdemy.pdf"
   },
   {
     title: "Software Engineering Job Simulation",
     org: "Walmart(Forage)",
     date: "25th Oct, 2024",
-    link: "#"
+    file: "assets/certificates/walmart.pdf"
   },
   {
     title: "ISF App Development",
     org: "Jaypee University of Engineering & Technology",
     date: "3rd Dec, 2024",
-    link: "#"
+    file: "assets/certificates/isf.pdf"
   },
   {
     title: "Goldman Sachs Forage Programs",
     org: "Goldman Sachs (Forage)",
     date: "10th Nov, 2024",
-    link: "#"
+    file: "assets/certificates/Resume.pdf"
   },
   {
     title: "HTML/CSS",
     org: "Infosys",
     date: "15th Dec, 2024",
-    link: "#"
+    file: null
   }
 ];
 const skills = {
@@ -108,14 +108,6 @@ const projects = [
     image: "assets/project-5.jpg"
   },
   {
-    title: "IETE STUDENT FORUM APP",
-    description: "An IETE student forum app, college club app.",
-    tech: ["Kotlin", "Firebase", "Jetpack Compose"],
-    github: "https://github.com/aryanjaiswal/iete-student-forum",
-    live: "https://demo-iete-student-forum.com",
-    image: "assets/project-6.jpg"
-  },
-  {
     title: "News World App",
     description: "This is a news app using an api",
     tech: ["Kotlin", "Firebase", "Jetpack Compose", "Retrofit", "newsapi.org"],
@@ -129,14 +121,84 @@ const projects = [
 function renderCertifications() {
   const certContainer = document.querySelector('.card-grid.certifications');
   if (!certContainer) return;
-  certContainer.innerHTML = certifications.map(cert => `
-    <div class="edu-card glassmorph">
+  certContainer.innerHTML = certifications.map((cert, index) => `
+    <button class="edu-card glassmorph cert-card" data-cert-index="${index}" ${!cert.file ? 'disabled' : ''} aria-label="${cert.title}">
       <h3>${cert.title}</h3>
       <h4>${cert.org}</h4>
       <p class="edu-date">${cert.date}</p>
-      ${cert.link !== "#" ? `<a href="${cert.link}" target="_blank">View</a>` : ""}
-    </div>
+      ${!cert.file ? `<span style="color: var(--text-muted); font-size: 0.95rem;">Coming soon</span>` : ''}
+    </button>
   `).join('');
+
+  // Bind click listeners to certificate cards
+  document.querySelectorAll('.cert-card').forEach(card => {
+    card.addEventListener('click', onCertificateCardClick);
+  });
+}
+
+// Certificate modal logic
+let selectedCertificateFile = null;
+
+function onCertificateCardClick(e) {
+  const index = e.currentTarget.getAttribute('data-cert-index');
+  const cert = certifications[Number(index)];
+  if (!cert || !cert.file) return;
+  selectedCertificateFile = cert.file;
+  showCertificateChoiceModal(cert.title);
+}
+
+function showCertificateChoiceModal(title) {
+  const modal = document.getElementById('certificate-modal');
+  const titleEl = document.getElementById('certificate-modal-title');
+  const msgEl = document.getElementById('certificate-modal-message');
+  titleEl.textContent = `Certificate: ${title}`;
+  msgEl.textContent = 'How would you like to proceed?';
+  modal.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function hideCertificateModal() {
+  const modal = document.getElementById('certificate-modal');
+  modal.classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+function setupCertificateModalHandlers() {
+  const modal = document.getElementById('certificate-modal');
+  const seeBtn = document.getElementById('certificate-see-btn');
+  const downloadBtn = document.getElementById('certificate-download-btn');
+  const closeBtn = document.getElementById('certificate-close');
+
+  // Close when clicking overlay background
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) hideCertificateModal();
+  });
+  // Close button
+  closeBtn.addEventListener('click', hideCertificateModal);
+  // Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('show')) hideCertificateModal();
+  });
+
+  // See: open in new tab
+  seeBtn.addEventListener('click', () => {
+    if (selectedCertificateFile) {
+      window.open(selectedCertificateFile, '_blank', 'noopener');
+    }
+    hideCertificateModal();
+  });
+
+  // Download: force download in a new tab
+  downloadBtn.addEventListener('click', () => {
+    if (!selectedCertificateFile) return;
+    const anchor = document.createElement('a');
+    anchor.href = selectedCertificateFile;
+    anchor.download = '';
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+    hideCertificateModal();
+  });
 }
 function renderSkills() {
   const skillsContainer = document.querySelector('.skills-list');
@@ -364,6 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCertifications();
   renderSkills();
   renderProjects();
+  setupCertificateModalHandlers();
 });
 
 // Typewriter effect for hero subtitle
@@ -538,7 +601,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Technical skill icons for loader
 const loaderIcons = [
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
@@ -560,7 +622,11 @@ function cycleLoaderIcons() {
   setTimeout(cycleLoaderIcons, 900);
 }
 if (loaderIconImg) {
-  loaderIconImg.src = loaderIcons[0];
+  // Start with a random language icon among Java/Kotlin/Python
+  loaderIconIndex = Math.floor(Math.random() * 3);
+  loaderIconImg.src = loaderIcons[loaderIconIndex];
+  // Advance so the next cycle shows a different icon
+  loaderIconIndex = (loaderIconIndex + 1) % loaderIcons.length;
   setTimeout(cycleLoaderIcons, 900);
 }
 
