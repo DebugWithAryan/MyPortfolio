@@ -104,7 +104,7 @@ html, body {
 }
 .btn-secondary {
   background: var(--bg-glass-light);
-  color: var(--accent);
+  color: var(--text-main);
   font-weight: 700;
   border: 1px solid var(--accent);
   border-radius: 2rem;
