@@ -271,8 +271,16 @@ function renderProjects() {
       <p class="project-desc">${p.description}</p>
       <p class="project-tech"><strong>Technologies Used :</strong> ${p.tech.join(', ')}</p>
       <div class="project-links">
-        ${p.live ? `<a href="#" class="btn-outline live-demo-link" data-project="${p.title}">Live Demo</a>` : ""}
-        ${p.github ? `<a href="#" class="btn-outline github-link" data-project="${p.title}">Github Repo</a>` : ""}
+        ${p.live && p.live !== '#' ? `<a href="${p.live}" target="_blank" class="btn-outline">
+          <i class="ri-external-link-line"></i> Live Demo
+        </a>` : `<a href="#" class="btn-outline live-demo-link" data-project="${p.title}">
+          <i class="ri-time-line"></i> Coming Soon
+        </a>`}
+        ${p.github && p.github !== '#' ? `<a href="${p.github}" target="_blank" class="btn-outline">
+          <i class="ri-github-fill"></i> GitHub
+        </a>` : `<a href="#" class="btn-outline github-link" data-project="${p.title}">
+          <i class="ri-time-line"></i> Coming Soon
+        </a>`}
       </div>
     </div>
   `).join('');
@@ -434,7 +442,7 @@ const typewriterTitleElement = document.getElementById('typewriter-title');
 const typewriterElement = document.getElementById('typewriter');
 const cursor = document.getElementById('typewriter-cursor');
 const titleText = "Hi, I'm Aryan Jaiswal";
-const roles = ["Software Engineer", "Android Developer"];
+const roles = ["Software Engineer", "Android Developer", "iOS Developer"];
 let titleCharIndex = 0;
 let roleIndex = 0;
 let charIndex = 0;
@@ -606,6 +614,7 @@ const loaderIcons = [
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
 ];
 let loaderIconIndex = 0;
