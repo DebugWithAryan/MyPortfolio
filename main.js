@@ -31,10 +31,10 @@ const certifications = [
     file: "assets/certificates/Resume.pdf"
   },
   {
-    title: "HTML/CSS",
-    org: "Infosys",
-    date: "15th Dec, 2024",
-    file: null
+    title: "Spring Boot & Spring AI Certification",
+    org: "Udemy",
+    date: "Mar 2025",
+    file: "assets/certificates/Resume.pdf"
   }
 ];
 const skills = {
@@ -43,13 +43,15 @@ const skills = {
     { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
     { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
     { name: "Kotlin", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" },
-    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" }
+    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { name: "Swift", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" }
   ],
   frameworks: [
     { name: "Android Studio", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" },
     { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
     { name: "Arduino IDE", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" },
-    { name: "SpringBoot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" }
+    { name: "Spring Boot", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+    { name: "Spring AI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" }
   ],
   databases: [
     { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
@@ -66,56 +68,86 @@ const skills = {
     { name: "Version Control", iconClass: "ri-git-branch-line" }
   ]
 };
-const projects = [
-  {
-    title: "JP Connect App",
-    description: "Developed an app that uses web scraping to fetch real-time academic data from the college website, including attendance records, exam marks, CGPA. Implemented attendance percentage prediction based on user simulation of attending or skipping future classes. Integrated Firebase for secure user authentication and cloud data storage. Designed an intuitive Jetpack Compose UI for quick insights and interactive predictions.",
-    tech: ["Kotlin", "Web Scraping", "Firebase", "Jetpack Compose"],
-    github: "https://github.com/aryanjaiswal/jp-connect-app",
-    live: "#",
-    image: "assets/project-1.jpg"
-  },
-  {
-    title: "ISF Club Management Application",
-    description: "Developed a club management app for 100+ members with real-time data updates. Added features like attendance tracking, event dashboard, inventory control. Integrated chat using Firebase Realtime DB. Designed responsive UI using Material Design 3. Implemented secure offline caching and notifications.",
-    tech: ["Kotlin", "Firebase", "Jetpack Compose", "MVVM"],
-    github: "https://github.com/aryanjaiswal/isf-club-management",
-    live: "#",
-    image: "assets/project-2.jpg"
-  },
-  {
-    title: "Connectify – Professional Networking Platform",
-    description: "Built an app supporting team formation and professional networking for 100+ users. Developed real-time post feed with advanced filters and hackathon tracking.",
-    tech: ["Kotlin", "Firebase", "OAuth"],
-    github: "https://github.com/aryanjaiswal/connectify-app",
-    live: "#",
-    image: "assets/project-3.jpg"
-  },
-  {
-    title: "JUET TimeTable Application",
-    description: "Designed an offline-first timetable app used by 1000+ students. Enabled batch/semester-specific filtering and updates. Optimized load time to 2 seconds with minimal battery usage.",
-    tech: ["Kotlin", "Firebase", "SQLite"],
-    github: "https://github.com/aryanjaiswal/juet-timetable-app",
-    live: "#",
-    image: "assets/project-4.jpg"
-  },
-  {
-    title: "Proximity Sensor Alarm System",
-    description: "An IoT-based alarm system using an arduino and a proximity sensor",
-    tech: ["Arduino", "HTML", "CSS", "JS"],
-    github: "https://github.com/aryanjaiswal/proximity-sensor-alarm",
-    live: "https://demo-proximity-sensor.com",
-    image: "assets/project-5.jpg"
-  },
-  {
-    title: "News World App",
-    description: "This is a news app using an api",
-    tech: ["Kotlin", "Firebase", "Jetpack Compose", "Retrofit", "newsapi.org"],
-    github: "https://github.com/aryanjaiswal/news-world-app",
-    live: "https://demo-news-world-app.com",
-    image: "assets/project-1.jpg"
-  }
-];
+const projects = {
+  android: [
+    {
+      title: "JP Connect App",
+      description: "Developed an app that uses web scraping to fetch real-time academic data from the college website, including attendance records, exam marks, CGPA. Implemented attendance percentage prediction based on user simulation of attending or skipping future classes. Integrated Firebase for secure user authentication and cloud data storage. Designed an intuitive Jetpack Compose UI for quick insights and interactive predictions.",
+      tech: ["Kotlin", "Web Scraping", "Firebase", "Jetpack Compose"],
+      github: "https://github.com/aryanjaiswal/jp-connect-app",
+      live: null,
+      image: "assets/project-1.jpg"
+    },
+    {
+      title: "ISF Club Management Application",
+      description: "Developed a club management app for 100+ members with real-time data updates. Added features like attendance tracking, event dashboard, inventory control. Integrated chat using Firebase Realtime DB. Designed responsive UI using Material Design 3. Implemented secure offline caching and notifications.",
+      tech: ["Kotlin", "Firebase", "Jetpack Compose", "MVVM"],
+      github: "https://github.com/aryanjaiswal/isf-club-management",
+      live: null,
+      image: "assets/project-2.jpg"
+    },
+    {
+      title: "Connectify – Professional Networking Platform",
+      description: "Built an app supporting team formation and professional networking for 100+ users. Developed real-time post feed with advanced filters and hackathon tracking.",
+      tech: ["Kotlin", "Firebase", "OAuth"],
+      github: "https://github.com/aryanjaiswal/connectify-app",
+      live: null,
+      image: "assets/project-3.jpg"
+    },
+    {
+      title: "JUET TimeTable Application",
+      description: "Designed an offline-first timetable app used by 1000+ students. Enabled batch/semester-specific filtering and updates. Optimized load time to 2 seconds with minimal battery usage.",
+      tech: ["Kotlin", "Firebase", "SQLite"],
+      github: "https://github.com/aryanjaiswal/juet-timetable-app",
+      live: null,
+      image: "assets/project-4.jpg"
+    },
+    {
+      title: "News World App",
+      description: "A modern news app using NewsAPI to fetch real-time news articles from multiple categories with search functionality and bookmarking features.",
+      tech: ["Kotlin", "Firebase", "Jetpack Compose", "Retrofit", "NewsAPI"],
+      github: "https://github.com/aryanjaiswal/news-world-app",
+      live: null,
+      image: "assets/project-5.jpg"
+    }
+  ],
+  ios: [
+    {
+      title: "Coming Soon",
+      description: "I'm currently learning iOS development with Swift and SwiftUI. My first iOS app will be showcased here soon.",
+      tech: ["Swift", "SwiftUI", "iOS"],
+      github: null,
+      live: null,
+      image: "assets/project-6.jpg"
+    }
+  ],
+  backend: [
+    {
+      title: "E-Commerce REST API",
+      description: "A comprehensive e-commerce backend API built with Spring Boot featuring user authentication, product management, order processing, and payment integration.",
+      tech: ["Spring Boot", "Spring Security", "MySQL", "REST API"],
+      github: "#",
+      live: "#",
+      image: "assets/project-1.jpg"
+    },
+    {
+      title: "AI-Powered Chat Assistant",
+      description: "An intelligent chat assistant API using Spring AI with support for multiple LLM providers, context management, and streaming responses.",
+      tech: ["Spring Boot", "Spring AI", "PostgreSQL", "Redis"],
+      github: "#",
+      live: "#",
+      image: "assets/project-2.jpg"
+    },
+    {
+      title: "Microservices Architecture",
+      description: "A distributed system architecture using Spring Boot microservices with API Gateway, Service Discovery, and Distributed Tracing.",
+      tech: ["Spring Boot", "Spring Cloud", "Docker", "Kubernetes"],
+      github: "#",
+      live: "#",
+      image: "assets/project-3.jpg"
+    }
+  ]
+};
 
 // --- Render Functions ---
 function renderCertifications() {
@@ -257,39 +289,123 @@ function renderSkills() {
   `;
 }
 function renderProjects() {
-  const carouselTrack = document.getElementById('carousel-track');
-  const carouselDots = document.getElementById('carousel-dots');
-  if (!carouselTrack || !carouselDots) return;
+  // Setup category card click handlers
+  setupCategoryCards();
   
-  // Render project cards
-  carouselTrack.innerHTML = projects.map(p => `
-    <div class="project-card glassmorph">
-      <div class="project-img-gradient">
-        <img src="${p.image}" alt="${p.title}" class="project-img"/>
-      </div>
-      <h3 class="project-title">${p.title}</h3>
-      <p class="project-desc">${p.description}</p>
-      <p class="project-tech"><strong>Technologies Used :</strong> ${p.tech.join(', ')}</p>
-      <div class="project-links">
-        ${p.live && p.live !== '#' ? `<a href="${p.live}" target="_blank" class="btn-outline">
-          <i class="ri-external-link-line"></i> Live Demo
-        </a>` : `<a href="#" class="btn-outline live-demo-link" data-project="${p.title}">
-          <i class="ri-time-line"></i> Coming Soon
-        </a>`}
-        ${p.github && p.github !== '#' ? `<a href="${p.github}" target="_blank" class="btn-outline">
-          <i class="ri-github-fill"></i> GitHub
-        </a>` : `<a href="#" class="btn-outline github-link" data-project="${p.title}">
-          <i class="ri-time-line"></i> Coming Soon
-        </a>`}
-      </div>
+  // Update project counts
+  updateProjectCounts();
+}
+
+function setupCategoryCards() {
+  const categoryCards = document.querySelectorAll('.category-card');
+  
+  categoryCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const category = card.getAttribute('data-category');
+      openProjectsModal(category);
+    });
+  });
+}
+
+function updateProjectCounts() {
+  const androidCount = projects.android.length;
+  const iosCount = projects.ios.length;
+  const backendCount = projects.backend.length;
+  
+  const androidEl = document.getElementById('android-count');
+  const iosEl = document.getElementById('ios-count');
+  const backendEl = document.getElementById('backend-count');
+  
+  if (androidEl) androidEl.textContent = `${androidCount} ${androidCount === 1 ? 'project' : 'projects'}`;
+  if (iosEl) iosEl.textContent = iosCount > 0 ? `${iosCount} ${iosCount === 1 ? 'project' : 'projects'}` : 'Coming Soon';
+  if (backendEl) backendEl.textContent = backendCount > 0 ? `${backendCount} ${backendCount === 1 ? 'project' : 'projects'}` : 'Coming Soon';
+}
+
+function openProjectsModal(category) {
+  const modal = document.getElementById('projects-modal');
+  const content = document.getElementById('projects-modal-content');
+  const titleEl = document.getElementById('projects-modal-title');
+  const iconEl = document.getElementById('modal-category-icon');
+  const bodyEl = document.getElementById('projects-modal-body');
+  
+  if (!modal || !content) return;
+  
+  // Set title and icon based on category
+  const categoryInfo = {
+    android: { title: 'Android Projects', icon: 'ri-android-fill' },
+    ios: { title: 'iOS Projects', icon: 'ri-apple-fill' },
+    backend: { title: 'Backend Projects', icon: 'ri-server-line' }
+  };
+  
+  const info = categoryInfo[category] || { title: 'Projects', icon: 'ri-code-s-slash-line' };
+  titleEl.textContent = info.title;
+  iconEl.className = info.icon;
+  
+  // Render projects for this category
+  const categoryProjects = projects[category] || [];
+  bodyEl.innerHTML = renderProjectsList(categoryProjects);
+  
+  // Show modal with slide-in animation
+  modal.classList.add('show');
+  document.body.classList.add('modal-open');
+  
+  // Add event listeners for project links
+  addProjectLinksListeners();
+}
+
+function renderProjectsList(projectList) {
+  if (!projectList || projectList.length === 0) {
+    return '<div class="no-projects">No projects available yet.</div>';
+  }
+  
+  return `
+    <div class="projects-list">
+      ${projectList.map(p => `
+        <div class="modal-project-card">
+          <div class="modal-project-image">
+            <img src="${p.image}" alt="${p.title}" />
+          </div>
+          <div class="modal-project-content">
+            <h4>${p.title}</h4>
+            <p>${p.description}</p>
+            <div class="modal-project-tech">
+              ${p.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+            </div>
+            <div class="modal-project-links">
+              ${p.github && p.github !== '#' ? `<a href="${p.github}" target="_blank" class="btn-outline btn-sm">
+                <i class="ri-github-fill"></i> GitHub
+              </a>` : `<button class="btn-outline btn-sm" disabled>
+                <i class="ri-time-line"></i> Coming Soon
+              </button>`}
+              ${p.live && p.live !== '#' ? `<a href="${p.live}" target="_blank" class="btn-primary btn-sm">
+                <i class="ri-external-link-line"></i> Live Demo
+              </a>` : `<button class="btn-primary btn-sm" disabled>
+                <i class="ri-time-line"></i> Not Available
+              </button>`}
+            </div>
+          </div>
+        </div>
+      `).join('')}
     </div>
-  `).join('');
-  
-  // Add event listeners for coming soon links
-  addComingSoonListeners();
-  
-  // Initialize carousel functionality
-  initializeCarousel();
+  `;
+}
+
+function addProjectLinksListeners() {
+  // Any additional listeners can be added here
+}
+
+function closeProjectsModal() {
+  const modal = document.getElementById('projects-modal');
+  if (modal) {
+    const content = document.getElementById('projects-modal-content');
+    content.style.transform = 'translateX(100%)';
+    
+    setTimeout(() => {
+      modal.classList.remove('show');
+      document.body.classList.remove('modal-open');
+      content.style.transform = '';
+    }, 400);
+  }
 }
 
 // Carousel functionality
@@ -435,14 +551,42 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSkills();
   renderProjects();
   setupCertificateModalHandlers();
+  setupProjectsModalHandlers();
 });
+
+function setupProjectsModalHandlers() {
+  const modal = document.getElementById('projects-modal');
+  const closeBtn = document.getElementById('projects-close');
+  const content = document.getElementById('projects-modal-content');
+  
+  if (!modal || !closeBtn || !content) return;
+  
+  // Close button
+  closeBtn.addEventListener('click', () => {
+    closeProjectsModal();
+  });
+  
+  // Close when clicking overlay background
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeProjectsModal();
+    }
+  });
+  
+  // Close with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('show')) {
+      closeProjectsModal();
+    }
+  });
+}
 
 // Typewriter effect for hero subtitle
 const typewriterTitleElement = document.getElementById('typewriter-title');
 const typewriterElement = document.getElementById('typewriter');
 const cursor = document.getElementById('typewriter-cursor');
 const titleText = "Hi, I'm Aryan Jaiswal";
-const roles = ["Software Engineer", "Android Developer", "iOS Developer"];
+const roles = ["Software Engineer", "Android Developer", "iOS Developer", "Backend Developer"];
 let titleCharIndex = 0;
 let roleIndex = 0;
 let charIndex = 0;
