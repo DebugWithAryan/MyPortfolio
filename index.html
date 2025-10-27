@@ -40,7 +40,7 @@
               <span id="typewriter"></span>
             </h2>
             <span class="typewriter-cursor" id="typewriter-cursor">|</span>
-            <p class="hero-desc">I build beautiful, performant mobile and web experiences. Let's create something amazing together.</p>
+            <p class="hero-desc">I build beautiful, performant mobile and web experiences across Android, iOS, and Web platforms. Let's create something amazing together.</p>
             <div class="hero-actions">
               <a href="assets/certificates/Resume.pdf" download class="btn-primary">
                 <i class="ri-download-line"></i> Download Resume
@@ -60,9 +60,9 @@
           </div>
           <div class="about-text">
             <h2>About Me</h2>
-            <p>I'm a passionate software engineer with 2+ years of experience in Android and web development. I love solving problems, building scalable apps, and learning new technologies. My goal is to deliver delightful user experiences through clean code and creative design.</p>
+            <p>I'm a passionate software engineer with 2+ years of experience in Android, iOS (learning phase), and web development. I love solving problems, building scalable apps, and learning new technologies. My goal is to deliver delightful user experiences through clean code and creative design.</p>
             <ul class="about-list">
-              <li><i class="ri-smartphone-line"></i> Kotlin, Java, Jetpack Compose</li>
+              <li><i class="ri-smartphone-line"></i> Kotlin, Java, Jetpack Compose, Swift, SwiftUI</li>
               <li><i class="ri-code-s-slash-line"></i> React, HTML, CSS, JS</li>
               <li><i class="ri-database-2-line"></i> Firebase, REST APIs</li>
             </ul>
@@ -79,9 +79,16 @@
           <h2 class="section-title">Experience</h2>
           <div class="card-grid">
             <div class="exp-card glassmorph">
-              <span class="exp-icon"><i class="ri-android-line"></i></span>
-              <h3>Software Development Intern</h3>
-              <h4>Delnie Pvt. Ltd. (Remote)</h4>
+              <div class="exp-header">
+                <span class="exp-icon"><i class="ri-android-line"></i></span>
+                <div class="exp-company-link">
+                  <h3>Software Development Intern</h3>
+                  <h4>Delnie Pvt. Ltd. (Remote)</h4>
+                  <a href="https://www.linkedin.com/in/aryanjaiswal1" target="_blank" class="exp-link-icon" title="View Company on LinkedIn">
+                    <i class="ri-external-link-line"></i>
+                  </a>
+                </div>
+              </div>
               <p class="exp-date">May 2025 - Present</p>
               <ul>
                 <li>Developed FavHiker, a food discovery Android app using Kotlin, Jetpack Compose, and MVVM.</li>
@@ -126,22 +133,36 @@
           <div class="skills-list"></div>
         </div>
       </section>
-      <!-- Projects Section with Carousel -->
+      <!-- Projects Section with Category Cards -->
       <section class="projects-section" id="projects">
         <div class="container">
           <h2 class="section-title">Projects</h2>
-          <div class="projects-carousel">
-            <button class="carousel-btn" id="prev-btn" aria-label="Previous projects">
-              <i class="ri-arrow-left-line"></i>
-            </button>
-            <div class="carousel-container">
-              <div class="carousel-track" id="carousel-track"></div>
+          <div class="projects-category-grid">
+            <div class="category-card glassmorph" data-category="android">
+              <div class="category-icon">
+                <i class="ri-android-fill"></i>
+              </div>
+              <h3>Android Projects</h3>
+              <p>Native Android apps built with Kotlin, Jetpack Compose, and modern architecture</p>
+              <div class="category-project-count" id="android-count">4 projects</div>
             </div>
-            <button class="carousel-btn" id="next-btn" aria-label="Next projects">
-              <i class="ri-arrow-right-line"></i>
-            </button>
+            <div class="category-card glassmorph" data-category="ios">
+              <div class="category-icon">
+                <i class="ri-apple-fill"></i>
+              </div>
+              <h3>iOS Projects</h3>
+              <p>Native iOS apps built with Swift and SwiftUI (Learning Phase)</p>
+              <div class="category-project-count" id="ios-count">Coming Soon</div>
+            </div>
+            <div class="category-card glassmorph" data-category="backend">
+              <div class="category-icon">
+                <i class="ri-server-line"></i>
+              </div>
+              <h3>Backend Projects</h3>
+              <p>RESTful APIs and microservices with Spring Boot and Spring AI</p>
+              <div class="category-project-count" id="backend-count">Coming Soon</div>
+            </div>
           </div>
-          <div class="carousel-dots" id="carousel-dots"></div>
         </div>
       </section>
       <section class="contact-section glassmorph" id="contact">
@@ -193,6 +214,26 @@
           <button class="btn-secondary" id="certificate-download-btn">Download</button>
         </div>
         <button class="modal-close" id="certificate-close">Close</button>
+      </div>
+    </div>
+
+    <!-- Projects Modal -->
+    <div class="modal-overlay" id="projects-modal">
+      <div class="modal-content projects-modal-content" id="projects-modal-content">
+        <div class="modal-close-wrapper">
+          <button class="modal-close" id="projects-close" title="Close">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+        <div class="modal-header">
+          <div class="modal-icon">
+            <i id="modal-category-icon"></i>
+          </div>
+          <h3 class="modal-title" id="projects-modal-title">Projects</h3>
+        </div>
+        <div class="modal-body" id="projects-modal-body">
+          <!-- Projects will be dynamically inserted here -->
+        </div>
       </div>
     </div>
     
